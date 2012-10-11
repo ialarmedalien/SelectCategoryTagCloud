@@ -1,0 +1,93 @@
+/* SelectCategoryTagCloud Mediawiki Extension
+ *
+ * @author Andreas Rindler (mediawiki at jenandi dot com)
+ * @credits Leon Weber <leon.weber@leonweber.de> & Manuel Schneider <manuel.schneider@wikimedia.ch>, Daniel Friesen http://wiki-tools.com
+ * @licence GNU General Public Licence 2.0 or later
+ * @description Adds a category selection tag cloud to the edit and upload pages and enables a Google Suggest like completion of categories entered by the user.
+ *
+*/
+
+/*Suggest search results DIV*/
+#searchResults {
+	line-height: 1.6; 
+	overflow: auto;
+	max-height: 170px;
+	height: expression( this.scrollHeight > 170? "170px" : "auto" );
+	width: 95%;
+	margin-top : -1px;
+	float : none;
+	visibility: hidden;
+	position: absolute;
+	color: #17375E;
+	background-color: white;
+	z-index: 1;
+	border: solid 1px black;
+}
+
+input#txtSelectedCategories {
+	width: 90%;
+}
+
+/*Category Select Master DIV*/
+#categoryselectmaster {
+	border: 1px solid #17375E;
+	background-color: #e9e9e9;
+/*	max-height: 550px; */
+	padding: 10px;
+	margin: 0px 0px 15px 0px;
+}
+	
+/*Tag cloud area*/
+#tagcloud {
+	text-align: center;
+	padding: 5px;
+	border: 1px solid #94a6b5;
+	margin: 0;
+	background-color: white;
+	font-size: 10px;
+	color: #7288ac;
+/*	max-height: 400px; */
+	overflow: auto;
+	vertical-align: baseline;
+}
+
+#tagcloud span {
+	padding: 1px 3px;
+	margin: 1px 3px;
+	border: 1px solid #fff;
+	line-height: 110%;
+}
+
+/*Each individual tag*/
+#tagcloud span.tagselected {
+	background-color: #7288ac;
+	color: white;
+	border: 1px solid #515256;
+}
+
+#tagcloud span.tag:hover {
+	cursor: pointer;
+/*	text-decoration: underline; */
+	border-bottom: 1px dotted #515256;
+}
+
+/*Highlighted category in search results list*/
+.highlight {
+	background-color: #17375E;
+	color: white;
+	cursor: pointer;
+	margin: 0;
+}
+
+.cs {
+	color: #17375E;
+	background-color: white;
+	cursor: pointer;
+	margin: 0;
+}
+
+/* the part of the result that matches */
+span.csSelect {
+	text-decoration: underline;
+	font-weight: bold;
+}

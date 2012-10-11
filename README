@@ -1,0 +1,17 @@
+Modded SelectCategoryTagCloud
+=============================
+
+This is a modified version of the Mediawiki extension SelectCategoryTagCloud, http://www.mediawiki.org/wiki/Extension:SelectCategoryTagCloud, as used on the GMOD wiki, http://gmod.org. This extension now works correctly on Mediawiki 1.19.2.
+
+Modifications made:
+
+- Titles (selectcategory-title, selectcategory-subtitle, selectcategory-boxlabel, etc.) now display and internationalization settings work;
+- The error caused by using the deprecated messaging system (in the line $wgMessageCache->addMessages($messages)) has been fixed;
+- Fixed the removal of trailing whitespace and addition of empty lines, as seen in D0li0's fix on the extension talk page;
+- Removed the tab for the 'Category Hierarchy', since it doesn't exist;
+- Tweaked the html and css a bit for a nicer visual experience;
+- Removed unneeded JS and CSS files.
+
+Any issues with the original extension that are not mentioned here probably still remain in this version. I fixed the issues that I found troublesome.
+
+-- girlwithglasses
