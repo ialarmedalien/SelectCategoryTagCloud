@@ -38,7 +38,6 @@ global $wgOut, $wgParser, $wgRequest, $wgSelectCategoryTagCloudCloud;
 
 		# Load system messages:
 #		fnSelectCategoryMessageHook();  ## Disabling for GMOD wiki
-		wfLoadExtensionMessages('SelectCategoryTagCloud');
 		# Get the right member variables, depending on if we're on an upload form or not:
 		if( !$m_isUpload ) {
 			# Check if page is subpage once to save method calls later:
@@ -57,7 +56,7 @@ global $wgOut, $wgParser, $wgRequest, $wgSelectCategoryTagCloudCloud;
 			$m_place = 'editFormTextAfterWarn';
 			# Print the localised title for the select box:
 			$m_textBefore = '<b>'. 
-			wfMsg( 'categorysuggest-title' ) 
+			wfMessage( 'categorysuggest-title' ) 
 			. '</b>:';
 		} else	{
 			# No need to get categories:
@@ -90,11 +89,11 @@ global $wgOut, $wgParser, $wgRequest, $wgSelectCategoryTagCloudCloud;
 		$m_pageObj->$m_place .= "<script type=\"text/javascript\">/*<![CDATA[*/\n";
 		#ADD INPUT BOX FOR USERS TO ENTER CATEGORIES
 		$m_pageObj->$m_place .= "document.write(\"<div id='categoryselectmaster'><b>" .
-		wfMsg( 'selectcategory-title' ) .
+		wfMessage( 'selectcategory-title' ) .
 		"</b><br>". 
-		wfMsg( 'selectcategory-subtitle' ) .
+		wfMessage( 'selectcategory-subtitle' ) .
 		"<br><b>" .
-		wfMsg( 'selectcategory-boxlabel' ) .
+		wfMessage( 'selectcategory-boxlabel' ) .
 		":</b><br>\");\n";
 		$m_pageObj->$m_place .= "document.write(\"<input onkeyup='sendRequest(this,event);' autocomplete='off' type='text' name='txtSelectedCategories' id='txtSelectedCategories' maxlength='200' length='150' value='".str_replace("_"," ",implode(";", $arrExistingCats))."'/><br>\");\n";
 		$m_pageObj->$m_place .= "document.write(\"<div id='searchResults'></div>\");\n";
@@ -396,8 +395,8 @@ function createTagCloud( $input, $params, $parser, $arrExistingCats ) {
 		if (in_array($title->getText(), $arrExistingCats)){
 			$existingClass = 'tagselected ';
 		}
-//		$currentRow = "<span title=\"" .wfMsg( 'selectcategory-tooltip' ). "\" onclick=\"checkCategory(this)\" class=\"" . $existingClass . $link_class . "\" style=\"{$style}\">" . $title->getText() . "</span>&nbsp; ";
-		$currentRow = "<span title='" .wfMsg( 'selectcategory-tooltip' ). "' onclick='checkCategory(this)' class='" . $existingClass . $link_class . "' style='{$style}'>" . $title->getText() . "</span>&nbsp; ";
+//		$currentRow = "<span title=\"" .wfMessage( 'selectcategory-tooltip' ). "\" onclick=\"checkCategory(this)\" class=\"" . $existingClass . $link_class . "\" style=\"{$style}\">" . $title->getText() . "</span>&nbsp; ";
+		$currentRow = "<span title='" .wfMessage( 'selectcategory-tooltip' ). "' onclick='checkCategory(this)' class='" . $existingClass . $link_class . "' style='{$style}'>" . $title->getText() . "</span>&nbsp; ";
 		
 
 		$htmlOut = $htmlOut . $currentRow;
